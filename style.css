@@ -129,10 +129,6 @@ h2 {
   color: darkturquoise;
 }
 
-#text {
- background-color: transparent;
- color: transparent;
-}
 
 /* width */
 ::-webkit-scrollbar {

@@ -54,24 +54,31 @@ function setupEditor() {
   editor.getSession().setTabSize(2);
   editor.getSession().setUseWrapMode(true);
   editor.setValue(
+    // ===========================
     // === SET x = result HERE ===
+    // ===========================
     `
-    <!DOCTYPE html><html><body>
-        <h2 id="idOutput">Output...</h2>
-        <h2 id="idDone" onclick="myFunction()" style='color: crimson' >Waiting ...</h2>
-    <script>
-        
-        document.getElementById("idOutput").innerHTML = x;  
-        
-        if (x === 'No Need To Shout!') {
-          document.body.style.backgroundColor = "#FFFF66";
-          document.getElementById("idDone").style.color = "green"; 
-          document.getElementById("idDone").innerHTML = '&#128504; Done!!!'; 
-        } else {
-          document.body.style.backgroundColor = "#282828"; 
-          document.body.style.color = "darkturquoise";
-        }
-    </script></body></html>
+<!DOCTYPE html><html><body>
+  <h2 id="idOutput">Output...</h2>
+  <h2 id="idDone" onclick="myFunction()" style='color: crimson' >Waiting ...</h2>
+<style>
+  * {
+  font-family: 'Courier New', Courier, monospace;
+  }
+</style>
+<script>
+  document.getElementById("idOutput").innerHTML = x;  
+  
+  if (x === 'No Need To Shout!') {
+    document.body.style.backgroundColor = "#FFFF66";
+    document.getElementById("idDone").style.color = "green"; 
+    document.getElementById("idDone").innerHTML = '&#128504; Done!!!'; 
+  } else {
+    document.body.style.backgroundColor = "#282828"; 
+    document.body.style.color = "darkturquoise";//
+    document.body.style.color = "#797F8C"; // shade of white
+  }
+</script></body></html>
     `,
     1
   ); //1 = moves cursor to end
@@ -80,7 +87,7 @@ function setupEditor() {
     update();
   });
 
-  editor.focus();
+  // editor.focus();
 
   editor.setOptions({
     fontSize: "12pt",
@@ -113,7 +120,7 @@ function update2() {
     var idoc2 = document.getElementById("iframe2").contentWindow.document;
 
     idoc2.open();
-    idoc2.write(editor2.getValue());  // original (need 'RUN' button)
+    // idoc2.write(editor2.getValue());  // original (need 'RUN' button)
     idoc2.write(storeMix);            // updates live
     idoc2.close();
   }
@@ -187,7 +194,7 @@ titleCase("No need to SHOUT!") should return "No Need To Shout!"
     update();
   });
 
-  editor3.focus();
+  // editor3.focus();
 
   editor3.setOptions({
     fontSize: "12pt",
@@ -264,12 +271,14 @@ function buttonAuto() {
     document.getElementById("btn-auto").innerText = "Auto: off";
     document.getElementById("run_button").setAttribute("disabled", "false");
     document.getElementById("run_button").style.cursor = "not-allowed";
+    document.getElementById("run_button").style.color = "#999";
     autoRun = true;
 
   } else {
     document.getElementById("btn-auto").innerText = "Auto: on";
     document.getElementById("run_button").removeAttribute("disabled");
     document.getElementById("run_button").style.cursor = "pointer";
+    document.getElementById("run_button").style.color = "#DCDCDC";
     autoRun = false;
   }
 }
@@ -281,8 +290,6 @@ update();
 setupEditor2();
 update2();
 setupEditor3();
-
-
 
 // === input QUESTION here ===
 var displayQuestion =
