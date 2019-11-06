@@ -3,6 +3,9 @@ document.getElementById("button2").addEventListener("click", loadAnswer);
 
 var storeHTML;
 var storeJS;
+var show = true;
+
+setTimeout(loadQuestion, 100);
 
 
 run_button.addEventListener("click", function () {
@@ -101,6 +104,8 @@ function update2() {
 }
 
 function setupEditor2() {
+  loadQuestion();
+
   window.editor2 = ace.edit("editor2");
   editor2.setTheme("ace/theme/monokai");
   editor2.getSession().setMode("ace/mode/javascript");
@@ -137,28 +142,47 @@ x = add(2,4);`,
 
 function loadQuestion() {
   document.getElementById("myTextarea").style.color = "green";
-  document.getElementById("myTextarea").value =
-    `
-Create a function that takes two arguments and then add them together:
+  document.getElementById("myTextarea").value = displayQuestion;
 
-add(2,4) result... '6'
-  `
 }
+
 function loadAnswer() {
-  document.getElementById("myTextarea").style.color = "blue";
-  document.getElementById("myTextarea").value =
-    `
-Create a function that takes two arguments and then add them together:
 
-add(2,4) result... '6'
-    
-function add(sum1, sum2) {
-  return (sum1, sum2);
-}
-    
-x = add(2,4);
-`
+  if (show) {
+    document.getElementById("button2").innerText = "Hide Answer";
+    document.getElementById("myTextarea").style.color = "blue";
+    document.getElementById("myTextarea").value = displayAnswer;
+    show = false;
+  } else {
+    document.getElementById("button2").innerText = "Show Answer";
+    document.getElementById("myTextarea").style.color = "green";
+    document.getElementById("myTextarea").value = displayQuestion;
+    show = true;
+  }
+
 }
 
 setupEditor2();
 update2();
+
+// input QUESTION here
+var displayQuestion =
+  `
+Create a function that takes two arguments and then add them together:
+
+add(2,4) result... '6'
+`;
+
+// input ANSWER here
+var displayAnswer =
+  `
+Create a function that takes two arguments and then add them together:
+  
+add(2,4) result... '6'
+      
+function add(sum1, sum2) {
+  return (sum1, sum2);
+}
+      
+x = add(2,4);
+`;
