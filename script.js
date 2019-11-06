@@ -13,6 +13,7 @@ setTimeout(loadQuestion, 100);
 
 // click btn-auto at start
 document.getElementById("btn-auto").click();
+document.getElementById("run_button").style.color = "#999";
 
 
 run_button.addEventListener("click", function () {
@@ -57,17 +58,18 @@ function setupEditor() {
     `
     <!DOCTYPE html><html><body>
         <h2 id="idOutput">Output...</h2>
-        <h2 id="idDone" onclick="myFunction()" style='color: red' >Waiting ...</h2>
+        <h2 id="idDone" onclick="myFunction()" style='color: crimson' >Waiting ...</h2>
     <script>
         
         document.getElementById("idOutput").innerHTML = x;  
         
         if (x === 'No Need To Shout!') {
-          document.body.style.backgroundColor = "#FFFF64";
+          document.body.style.backgroundColor = "#FFFF66";
           document.getElementById("idDone").style.color = "green"; 
           document.getElementById("idDone").innerHTML = '&#128504; Done!!!'; 
         } else {
-          document.body.style.backgroundColor = "white";
+          document.body.style.backgroundColor = "#282828"; 
+          document.body.style.color = "darkturquoise";
         }
     </script></body></html>
     `,
@@ -223,7 +225,7 @@ function loadAnswer() {
     document.getElementById('editor3').style.width = '33.7%';
 
     // document.getElementById('editor3').style.fontSize = '15px';
-    document.getElementById('editor3').style.color = 'white';
+    document.getElementById('editor3').style.color = '#DCDCDC';
     // // editor3.getSession().setUseWrapMode(true);
 
     window.editor3 = ace.edit("editor3");
