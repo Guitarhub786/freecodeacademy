@@ -1,3 +1,5 @@
+
+
 document.getElementById("btn-answer").addEventListener("click", loadAnswer);
 document.getElementById("btn-auto").addEventListener("click", buttonAuto);
 
@@ -8,6 +10,9 @@ var autoRun = false;
 var attempt = 0;
 
 setTimeout(loadQuestion, 100);
+
+// click btn-auto at start
+document.getElementById("btn-auto").click();
 
 
 run_button.addEventListener("click", function () {
@@ -31,6 +36,7 @@ run_button.addEventListener("click", function () {
 });
 
 //============== ACE EDITOR ==============
+// ACE 1
 function update() {
 
   var idoc = document.getElementById("iframe").contentWindow.document;
@@ -47,17 +53,21 @@ function setupEditor() {
   editor.getSession().setTabSize(2);
   editor.getSession().setUseWrapMode(true);
   editor.setValue(
+    // === SET x = result HERE ===
     `
     <!DOCTYPE html><html><body>
         <h2 id="idOutput">Output...</h2>
-        <h2 id="idDone" onclick="myFunction()" style='color: red' >Waiting...</h2>
+        <h2 id="idDone" onclick="myFunction()" style='color: red' >Waiting ...</h2>
     <script>
         
         document.getElementById("idOutput").innerHTML = x;  
         
-        if (x === 6) {
+        if (x === 'No Need To Shout!') {
+          document.body.style.backgroundColor = "#FFFF64";
           document.getElementById("idDone").style.color = "green"; 
-          document.getElementById("idDone").innerHTML = 'Done!'; 
+          document.getElementById("idDone").innerHTML = '&#128504; Done!!!'; 
+        } else {
+          document.body.style.backgroundColor = "white";
         }
     </script></body></html>
     `,
@@ -83,10 +93,8 @@ function setupEditor() {
   editor.setBehavioursEnabled(false);
 }
 
-setupEditor();
-update();
-
 //==================================================
+// ACE 2
 
 function update2() {
 
@@ -119,12 +127,14 @@ function setupEditor2() {
   editor2.getSession().setTabSize(2);
   editor2.getSession().setUseWrapMode(true);
   editor2.setValue(
+    // === SET TEMPLATE HERE ===
     `
-function add() {
-  
+function titleCase(str) {
+  return str;
 }
 
-x = add(2,4);`,
+x = titleCase("No need to SHOUT!");
+`,
     1
   ); //1 = moves cursor to end
 
@@ -147,6 +157,60 @@ x = add(2,4);`,
   editor2.setBehavioursEnabled(false);
 }
 
+//==================================================
+// ACE 3
+function update3() {
+
+  var idoc3 = document.getElementById("iframe3").contentWindow.document;
+
+  idoc3.open();
+  idoc3.write(editor3.getValue());
+  idoc3.close();
+}
+
+function setupEditor3() {
+  window.editor3 = ace.edit("editor3");
+  editor3.setTheme("ace/theme/monokai");
+  // editor3.getSession().setMode("ace/mode/javascript");
+  editor3.getSession().setTabSize(0);
+  editor3.getSession().setUseWrapMode(true);
+
+  document.getElementById('editor3').style.fontSize = '16px';
+  document.getElementById('editor3').style.color = 'cyan';
+  editor3.setValue(
+    // === SET x = result HERE ===
+    `
+Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
+
+For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
+
+titleCase("No need to SHOUT!") should return "No Need To Shout!"
+`,
+    1
+  ); //1 = moves cursor to end
+
+  editor3.getSession().on("change", function () {
+    update();
+  });
+
+  editor3.focus();
+
+  editor3.setOptions({
+    fontSize: "12pt",
+    showLineNumbers: false,
+    showGutter: false,
+    vScrollBarAlwaysVisible: true,
+    enableBasicAutocompletion: false,
+    enableLiveAutocompletion: false
+  });
+
+  editor3.setShowPrintMargin(false);
+  editor3.setBehavioursEnabled(false);
+}
+
+//==================================================
+// Load Questions and Answers
+
 function loadQuestion() {
   document.getElementById("myTextarea").style.color = "green";
   document.getElementById("myTextarea").value = displayQuestion;
@@ -158,12 +222,30 @@ function loadAnswer() {
   if (show) {
     document.getElementById("btn-answer").innerText = "Hide Answer";
     document.getElementById("myTextarea").style.color = "blue";
-    document.getElementById("myTextarea").value = displayQuestion + displayAnswer;
+    document.getElementById("myTextarea").value = displayAnswer;
+    // .value = displayQuestion + displayAnswer;
+
+    editor3.getSession().setMode("ace/mode/javascript");
+    document.getElementById('editor3').style.fontSize = '16px';
+    // document.getElementById('editor3').style.color = '#DCDCDC';
+    document.getElementById('editor3').style.color = 'white';
+    editor3.setValue(displayAnswer);
+
+    editor3.insert(displayAnswer);
+    // editor3.gotoLine(10);
+
     show = false;
   } else {
     document.getElementById("btn-answer").innerText = "Show Answer";
     document.getElementById("myTextarea").style.color = "green";
     document.getElementById("myTextarea").value = displayQuestion;
+
+    document.getElementById('editor3').style.fontSize = '16px';
+    document.getElementById('editor3').style.color = 'cyan';
+    editor3.getSession().setMode();
+    editor3.setValue(displayQuestion);
+    editor3.insert(displayQuestion);
+
     show = true;
   }
 
@@ -185,24 +267,40 @@ function buttonAuto() {
   }
 }
 
+//==================================================
+// Run Functions 
+setupEditor();
+update();
 setupEditor2();
 update2();
+setupEditor3();
+update3();
+loadQuestion();
 
-// input QUESTION here
+
+// === input QUESTION here ===
 var displayQuestion =
   `
-Function that takes two arguments and then returns a value adding them together:
+Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
 
-add(2,4) result... '6'
+For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
+
+titleCase("No need to SHOUT!") should return "No Need To Shout!"
 `;
 
-// input ANSWER here
+// === input ANSWER here ===
 var displayAnswer =
   `
-// Solution      
-function add(sum1,sum2) {
-  return (sum1+sum2);
+function titleCase(str) {
+  let strLower = str.toLowerCase();
+  let words = strLower.split(" ");
+  let titleCasedWords = [];
+
+  for (var i = 0; i < words.length; i++) {
+    titleCasedWords.push(words[i][0].toUpperCase() + words[i].slice(1));
+  }
+  return titleCasedWords.join(" ");
 }
-      
-x = add(2,4);
+
+titleCase("No need to SHOUT!");
 `;
