@@ -1,17 +1,21 @@
-document.getElementById("button1").addEventListener("click", loadQuestion);
-document.getElementById("button2").addEventListener("click", loadAnswer);
+document.getElementById("btn-answer").addEventListener("click", loadAnswer);
+document.getElementById("btn-auto").addEventListener("click", buttonAuto);
 
 var storeHTML;
 var storeJS;
 var show = true;
+var autoRun = false;
+var attempt = 0;
 
 setTimeout(loadQuestion, 100);
 
 
 run_button.addEventListener("click", function () {
+  attempt++;
   storeHTML = editor.getValue();
   storeJS = editor2.getValue();
   storeMix =
+    "Attempt: " + attempt +
     "<script>" +
     storeJS +
     "</script>" +
@@ -86,20 +90,23 @@ update();
 
 function update2() {
 
-  storeHTML = editor.getValue();
-  storeJS = editor2.getValue();
-  storeMix =
-    "<script>" +
-    storeJS +
-    "</script>" +
-    storeHTML;
+  if (autoRun) {
 
-  var idoc2 = document.getElementById("iframe2").contentWindow.document;
+    storeHTML = editor.getValue();
+    storeJS = editor2.getValue();
+    storeMix =
+      "<script>" +
+      storeJS +
+      "</script>" +
+      storeHTML;
 
-  idoc2.open();
-  idoc2.write(editor2.getValue());  // original (need 'RUN' button)
-  idoc2.write(storeMix);            // updates live
-  idoc2.close();
+    var idoc2 = document.getElementById("iframe2").contentWindow.document;
+
+    idoc2.open();
+    idoc2.write(editor2.getValue());  // original (need 'RUN' button)
+    idoc2.write(storeMix);            // updates live
+    idoc2.close();
+  }
 
 }
 
@@ -128,7 +135,7 @@ x = add(2,4);`,
   editor2.focus();
 
   editor2.setOptions({
-    fontSize: "14pt",
+    fontSize: "12pt",
     showLineNumbers: true,
     showGutter: true,
     vScrollBarAlwaysVisible: true,
@@ -149,17 +156,33 @@ function loadQuestion() {
 function loadAnswer() {
 
   if (show) {
-    document.getElementById("button2").innerText = "Hide Answer";
+    document.getElementById("btn-answer").innerText = "Hide Answer";
     document.getElementById("myTextarea").style.color = "blue";
-    document.getElementById("myTextarea").value = displayAnswer;
+    document.getElementById("myTextarea").value = displayQuestion + displayAnswer;
     show = false;
   } else {
-    document.getElementById("button2").innerText = "Show Answer";
+    document.getElementById("btn-answer").innerText = "Show Answer";
     document.getElementById("myTextarea").style.color = "green";
     document.getElementById("myTextarea").value = displayQuestion;
     show = true;
   }
 
+}
+
+function buttonAuto() {
+
+  if (!autoRun) {
+    document.getElementById("btn-auto").innerText = "Auto: off";
+    document.getElementById("run_button").setAttribute("disabled", "false");
+    document.getElementById("run_button").style.cursor = "not-allowed";
+    autoRun = true;
+
+  } else {
+    document.getElementById("btn-auto").innerText = "Auto: on";
+    document.getElementById("run_button").removeAttribute("disabled");
+    document.getElementById("run_button").style.cursor = "pointer";
+    autoRun = false;
+  }
 }
 
 setupEditor2();
@@ -168,7 +191,7 @@ update2();
 // input QUESTION here
 var displayQuestion =
   `
-Create a function that takes two arguments and then add them together:
+Function that takes two arguments and then returns a value adding them together:
 
 add(2,4) result... '6'
 `;
@@ -176,12 +199,9 @@ add(2,4) result... '6'
 // input ANSWER here
 var displayAnswer =
   `
-Create a function that takes two arguments and then add them together:
-  
-add(2,4) result... '6'
-      
-function add(sum1, sum2) {
-  return (sum1, sum2);
+// Solution      
+function add(sum1,sum2) {
+  return (sum1+sum2);
 }
       
 x = add(2,4);
