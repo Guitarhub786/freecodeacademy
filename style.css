@@ -9,6 +9,7 @@ body {
 }
 
 #editor {
+  /* editor behind the scenes setup code*/
   height: 80%;
   /* hide display */
   width: 0%;
@@ -18,16 +19,15 @@ body {
 #editor2 {
   /* Main Display */
   height: 80%;
-  /* width: 45%; */
-  width: 20%;
+  width: 45%;
   display: inline-block;
   border-width: 20px;
 }
 #editor3 {
-  /* Main Display */
+  /* ACE Answer */
   height: 80%;
   /* width: 45%; */
-  width: 40%;
+  width: 0px;
   display: inline-block;
   border-width: 20px;
 }
@@ -41,6 +41,7 @@ body {
 }
 
 #iframe {
+  /* iframe behind the scenes ouput*/
   /* hide display */
   display: none;
   height: 70%;
@@ -52,14 +53,15 @@ body {
   /* Output results */
   height: 79%;
   display: inline-block;
-  width: 20%;
+  width: 19.7%;
   border-width: 2px;
 }
 
 #myTextarea {
   /* Question and Answers */
   font-family: 'Courier New', Courier, monospace;
-  color: red;
+  /* background-color: #272822; */
+  /* color: cyan; */
   height: 79%;
   display: inline-block;
   width: 33%;

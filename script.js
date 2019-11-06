@@ -159,14 +159,6 @@ x = titleCase("No need to SHOUT!");
 
 //==================================================
 // ACE 3
-function update3() {
-
-  var idoc3 = document.getElementById("iframe3").contentWindow.document;
-
-  idoc3.open();
-  idoc3.write(editor3.getValue());
-  idoc3.close();
-}
 
 function setupEditor3() {
   window.editor3 = ace.edit("editor3");
@@ -206,6 +198,7 @@ titleCase("No need to SHOUT!") should return "No Need To Shout!"
 
   editor3.setShowPrintMargin(false);
   editor3.setBehavioursEnabled(false);
+  editor3.setReadOnly(true);
 }
 
 //==================================================
@@ -225,20 +218,32 @@ function loadAnswer() {
     document.getElementById("myTextarea").value = displayAnswer;
     // .value = displayQuestion + displayAnswer;
 
-    editor3.getSession().setMode("ace/mode/javascript");
-    document.getElementById('editor3').style.fontSize = '16px';
-    // document.getElementById('editor3').style.color = '#DCDCDC';
-    document.getElementById('editor3').style.color = 'white';
-    editor3.setValue(displayAnswer);
+    // hide myTextarea and to only show ACE answer
+    document.getElementById("myTextarea").style.display = "none";
+    document.getElementById('editor3').style.width = '33.7%';
 
+    // document.getElementById('editor3').style.fontSize = '15px';
+    document.getElementById('editor3').style.color = 'white';
+    // // editor3.getSession().setUseWrapMode(true);
+
+    window.editor3 = ace.edit("editor3");
+    editor3.setTheme("ace/theme/monokai");
+    editor3.getSession().setMode("ace/mode/javascript");
+    editor3.getSession().setTabSize(0);
+    editor3.getSession().setUseWrapMode(true);
+
+    editor3.setValue(displayAnswer);
     editor3.insert(displayAnswer);
-    // editor3.gotoLine(10);
 
     show = false;
   } else {
     document.getElementById("btn-answer").innerText = "Show Answer";
     document.getElementById("myTextarea").style.color = "green";
     document.getElementById("myTextarea").value = displayQuestion;
+
+    // show myTextarea and to only hide ACE answer
+    document.getElementById("myTextarea").style.display = "";
+    document.getElementById('editor3').style.width = '0%';
 
     document.getElementById('editor3').style.fontSize = '16px';
     document.getElementById('editor3').style.color = 'cyan';
@@ -274,8 +279,7 @@ update();
 setupEditor2();
 update2();
 setupEditor3();
-update3();
-loadQuestion();
+
 
 
 // === input QUESTION here ===
