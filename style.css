@@ -11,13 +11,13 @@ body {
 #editor {
   height: 80%;
   /* hide display */
-  width: 20%;
+  width: 0%;
   display: inline-block;
   border-width: 20px;
 }
 #editor2 {
   height: 80%;
-  width: 30%;
+  width: 50%;
   display: inline-block;
   border-width: 20px;
 }
@@ -32,7 +32,7 @@ body {
 
 #iframe {
   /* hide display */
-  /* display: none; */
+  display: none;
   height: 70%;
   /* display: inline-block; */
   width: 15%;
@@ -41,7 +41,7 @@ body {
 #iframe2 {
   height: 70%;
   display: inline-block;
-  width: 15%;
+  width: 20%;
   border-width: 2px;
 }
 
