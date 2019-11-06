@@ -1,3 +1,6 @@
+document.getElementById("button1").addEventListener("click", loadQuestion);
+document.getElementById("button2").addEventListener("click", loadAnswer);
+
 var storeHTML;
 var storeJS;
 
@@ -130,6 +133,31 @@ x = add(2,4);`,
 
   editor2.setShowPrintMargin(false);
   editor2.setBehavioursEnabled(false);
+}
+
+function loadQuestion() {
+  document.getElementById("myTextarea").style.color = "green";
+  document.getElementById("myTextarea").value =
+    `
+Create a function that takes two arguments and then add them together:
+
+add(2,4) result... '6'
+  `
+}
+function loadAnswer() {
+  document.getElementById("myTextarea").style.color = "blue";
+  document.getElementById("myTextarea").value =
+    `
+Create a function that takes two arguments and then add them together:
+
+add(2,4) result... '6'
+    
+function add(sum1, sum2) {
+  return (sum1, sum2);
+}
+    
+x = add(2,4);
+`
 }
 
 setupEditor2();
