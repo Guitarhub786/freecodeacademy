@@ -1,8 +1,4 @@
 
-
-document.getElementById("btn-answer").addEventListener("click", loadAnswer);
-document.getElementById("btn-auto").addEventListener("click", buttonAuto);
-
 var storeHTML;
 var storeJS;
 var show = true;
@@ -10,6 +6,11 @@ var autoRun = false;
 var attempt = 0;
 
 setTimeout(loadQuestion, 100);
+
+// DOM Setup
+document.getElementById("title").innerHTML = displayTitle;
+document.getElementById("btn-answer").addEventListener("click", loadAnswer);
+document.getElementById("btn-auto").addEventListener("click", buttonAuto);
 
 // click btn-auto at start
 document.getElementById("btn-auto").click();
@@ -22,6 +23,10 @@ run_button.addEventListener("click", function () {
   storeJS = editor2.getValue();
   storeMix =
     "Attempt: " + attempt +
+    "<script>" +
+    //change expectedOutput to desired answer
+    expectedOutput +
+    "</script>" +
     "<script>" +
     storeJS +
     "</script>" +
@@ -54,24 +59,63 @@ function setupEditor() {
   editor.getSession().setTabSize(2);
   editor.getSession().setUseWrapMode(true);
   editor.setValue(
+    // ===========================
     // === SET x = result HERE ===
+    // ===========================
     `
-    <!DOCTYPE html><html><body>
-        <h2 id="idOutput">Output...</h2>
-        <h2 id="idDone" onclick="myFunction()" style='color: crimson' >Waiting ...</h2>
-    <script>
-        
-        document.getElementById("idOutput").innerHTML = x;  
-        
-        if (x === 120) {
-          document.body.style.backgroundColor = "#FFFF66";
-          document.getElementById("idDone").style.color = "green"; 
-          document.getElementById("idDone").innerHTML = '&#128504; Done!!!'; 
-        } else {
-          document.body.style.backgroundColor = "#282828"; 
-          document.body.style.color = "darkturquoise";
-        }
-    </script></body></html>
+<!DOCTYPE html><html><body>
+<h2 id="idOutput" style='color: #797F8C'>Output...</h2>
+<h2 id="idDone" style='color: crimson' >Waiting ...</h2>
+
+  <h3 id="log1"></h3>
+  <h3 id="log2"></h3>
+  <h3 id="log3"></h3>
+  <h3 id="log4"></h3>
+  <h3 id="log5"></h3>
+  
+<style>
+  * {
+  font-family: 'Courier New', Courier, monospace;
+  }
+</style>
+
+<script>
+  var alt;
+  var log1;
+  var log2;
+  var log3;
+  var log4;
+  var log5;
+
+  if (typeof log1 !== 'undefined') {
+    document.getElementById("log1").innerHTML = "log1 = " + log1;
+  }
+  if (typeof log2 !== 'undefined') {
+    document.getElementById("log2").innerHTML = "log2 = " + log2;
+  }
+  if (typeof log3 !== 'undefined') {
+    document.getElementById("log3").innerHTML = "log3 = " + log3;
+  }
+  if (typeof log4 !== 'undefined') {
+    document.getElementById("log4").innerHTML = "log4 = " + log4;
+  }
+  if (typeof log5 !== 'undefined') {
+    document.getElementById("log5").innerHTML = "log5 = " + log5;
+  }
+
+  document.getElementById("idOutput").innerHTML = x;  
+  
+  if (x === Expecting) {
+    document.body.style.backgroundColor = "#FFFF66";
+    document.getElementById("idOutput").style.color = "black";
+    document.getElementById("idDone").style.color = "green"; 
+    document.getElementById("idDone").innerHTML = '&#128504; Done!!!'; 
+  } else {
+    document.body.style.backgroundColor = "#282828"; 
+    document.body.style.color = "darkturquoise";//
+    document.body.style.color = "#797F8C"; // shade of white
+  }
+</script></body></html>
     `,
     1
   ); //1 = moves cursor to end
@@ -106,6 +150,10 @@ function update2() {
     storeJS = editor2.getValue();
     storeMix =
       "<script>" +
+      //change expectedOutput to desired answer
+      expectedOutput +
+      "</script>" +
+      "<script>" +
       storeJS +
       "</script>" +
       storeHTML;
@@ -114,7 +162,8 @@ function update2() {
 
     idoc2.open();
     // idoc2.write(editor2.getValue());  // original (need 'RUN' button)
-    idoc2.write(storeMix);            // updates live
+    idoc2.write(storeMix);
+    // console.log(storeMix);          // updates live
     idoc2.close();
   }
 
@@ -128,17 +177,8 @@ function setupEditor2() {
   editor2.getSession().setMode("ace/mode/javascript");
   editor2.getSession().setTabSize(2);
   editor2.getSession().setUseWrapMode(true);
-  editor2.setValue(
-    // === SET TEMPLATE HERE ===
-    `
-function factorialize(num) {
-  return num;
-}
-
-x = factorialize(5);
-`,
-    1
-  ); //1 = moves cursor to end
+  editor2.setValue(displayCode, 1); //1 = moves cursor to end
+  // editor2.insert("any string you want to add on");
 
   editor2.getSession().on("change", function () {
     update2();
@@ -174,11 +214,7 @@ function setupEditor3() {
   editor3.setValue(
     // === SET x = result HERE ===
     `
-Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
-
-For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
-
-titleCase("No need to SHOUT!") should return "No Need To Shout!"
+displayAnswer not needed in setupEditor3() for now
 `,
     1
   ); //1 = moves cursor to end
@@ -284,28 +320,3 @@ setupEditor2();
 update2();
 setupEditor3();
 
-
-// input QUESTION here
-var displayQuestion =
-  `
-Return the factorial of the provided integer.
-If the integer is represented with the letter n, a factorial is the product of all positive integers less than or equal to n.
-Factorials are often represented with the shorthand notation n!
-For example: 5! = 1 * 2 * 3 * 4 * 5 = 120
-
-factorialize(5) result... "120"
-`;
-
-// input ANSWER here
-var displayAnswer =
-  `
-function factorialize(num) {
-  var result = 1;
-  for (var i = 1; i <= num; i++) {
-    result *= i;
-  }
-  return result;
-}
-
-factorialize(5);
-`;

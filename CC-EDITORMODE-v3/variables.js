@@ -3,7 +3,7 @@
 //=========================================
 
 // === input QUESTION here ===
-let displayTitle = "Data Structure - Exercise 1: Add and Remove Items";
+let displayTitle = "You are in Editor Mode";
 
 // === input QUESTION here ===
 let displayQuestion =

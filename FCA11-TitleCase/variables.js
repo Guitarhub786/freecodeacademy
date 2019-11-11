@@ -18,34 +18,37 @@ titleCase("No need to SHOUT!") should return "No Need To Shout!"
 // === input CODE QUSTION here ===
 let displayCode =
   `
-  function titleCase(str) {
-    return str;
-  }
+function titleCase(str) {
   
- x = titleCase("No need to SHOUT!");
+  return str;
+}
+
+x = titleCase("No need to SHOUT!");
 `;
 
 
 // === input ANSWER here ===
 let displayAnswer =
-  `
+  ` 
 function titleCase(str) {
   let strLower = str.toLowerCase();
   let words = strLower.split(" ");
   let titleCasedWords = [];
-  
-  for (let i = 0; i < words.length; i++) {
+
+  for (var i = 0; i < words.length; i++) {
     titleCasedWords.push(words[i][0].toUpperCase() + words[i].slice(1));
   }
   return titleCasedWords.join(" ");
 }
 
-titleCase("No need to Shout!");
+titleCase("No need to SHOUT!");
 `;
 
 // === Desired Output (answer) here ===
 // for strings use  "let Expecting = 'Hello World' ";
-let expectedOutput = "let Expecting = 'No Need To Shout!'"
+
+// let expectedOutput = "let Expecting = ['three','four']"
+let expectedOutput = "let Expecting = 'No Need To Shout!'";
 
 //=========================================
 //=========================================

@@ -16,7 +16,7 @@ body {
   
 }
 
-h1 {
+#heading {
   font-size: 50px;
   /* color: rgba(0,0,0,0.5); */
   color: red;
@@ -44,6 +44,19 @@ h1 {
   color: #c5c5c5;
   color: rgba(28, 112, 190, 0.5);
   text-shadow: -1px -1px 0 #fff, 1px 1px 0 #060606;
+}
+
+#sub-heading {
+  font-size: 25px;
+  /* color: rgba(0,0,0,0.5); */
+  color: red;
+  color: rgba(207, 13, 13, 0.5);
+  text-align: left;
+  margin-top: 30px;
+
+  color: #c5c5c5;
+  color: rgba(28, 112, 190, 0.5);
+  /* text-shadow: -1px -1px 0 #fff, 1px 1px 0 #060606; */
 }
 
 #container {

@@ -10,39 +10,39 @@
   <title>Code Challenge</title>
 </head>
 
-<body onload='ready()'>
+<!-- <body onload='ready()'> -->
 
-  <div id='header'>
+<div id='header'>
 
-    <button id=run_button>Run</button>
-    <button id=btn-auto>Auto: on</button>
-    <button id="btn-answer">Show Answer</button>
-    <h2>Exercise 4: Find the Longest Word in a String</h2>
+  <button id=run_button>Run</button>
+  <button id=btn-auto>Auto: on</button>
+  <button id="btn-answer">Show Answer</button>
+  <h2 id="title">Exercise: Title goes here!</h2>
 
+</div>
+
+<div id='container'>
+
+  <div id="editor">
+  </div>
+  <div id="editor2">
+  </div>
+  <div id="editor3">
   </div>
 
-  <div id='container'>
-
-    <div id="editor">
-    </div>
-    <div id="editor2">
-    </div>
-    <div id="editor3">
-    </div>
-
-    <textarea id='myTextarea' rows="35" cols="23" readonly>
+  <textarea id='myTextarea' rows="35" cols="23" readonly>
       Code Answer
     </textarea>
 
-    <iframe id='iframe' srcdoc="FACE">
-    </iframe>
-    <iframe id='iframe2' scrolling="no" srcdoc="Click Run button">
-    </iframe>
+  <iframe id='iframe' srcdoc="FACE">
+  </iframe>
+  <iframe id='iframe2' scrolling="no" srcdoc="Click Run button">
+  </iframe>
 
+</div>
 
-
-  </div>
-  <script src="script.js"></script>
+<script src="variables.js"></script>
+<script src="script.js"></script>
 </body>
 
 </html>
