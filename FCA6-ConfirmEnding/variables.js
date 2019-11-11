@@ -19,7 +19,7 @@ confirmEnding("Abstraction", "action") should return true.
 let displayCode =
   `
 function confirmEnding(str, target) {
-  log1=4
+  
   return str;
 }
 
