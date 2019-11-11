@@ -20,6 +20,7 @@ reverseString("hello") result... "olleh"
 let displayCode =
   `
 function reverseString(str) {
+  
   return str;
 }
 
