@@ -19,7 +19,7 @@ confirmEnding("Abstraction", "action") should return true.
 let displayCode =
   `
 function confirmEnding(str, target) {
-  
+
   return str;
 }
 

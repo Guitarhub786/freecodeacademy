@@ -18,7 +18,7 @@ findLongestWordLength("The quick brown fox jumped over the lazy dog") result... 
 let displayCode =
   `
 function findLongestWordLength(str) {
-  
+
   return str.length;
 }
 
@@ -56,6 +56,17 @@ let displayAnswer =
   }
   
   findLongestWordLength("The quick brown fox jumped over the lazy dog");
+
+  // solution 3
+  function findLongestWordLength(str) {
+  
+    return str.split(" ").sort(
+      function (a, b) {
+      return b.length - a.length;
+      })[0].length;
+    }
+  
+  x = findLongestWordLength("The quick brown fox jumped over the lazy dog");
 `;
 
 // === Desired Output (answer) here ===

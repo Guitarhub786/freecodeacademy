@@ -35,6 +35,7 @@ function repeatStringNumTimes(str, num) {
 
 repeatStringNumTimes("abc", 3);
 
+
 // solution 2
 var accumulatedStr = '';
 

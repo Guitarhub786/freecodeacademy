@@ -72,6 +72,10 @@ function setupEditor() {
   <h3 id="log3"></h3>
   <h3 id="log4"></h3>
   <h3 id="log5"></h3>
+  <h3 id="log6"></h3>
+  <h3 id="log7"></h3>
+  <h3 id="log8"></h3>
+  <h3 id="log9"></h3>
   
 <style>
   * {
@@ -80,12 +84,15 @@ function setupEditor() {
 </style>
 
 <script>
-  var alt;
   var log1;
   var log2;
   var log3;
   var log4;
   var log5;
+  var log6;
+  var log7;
+  var log8;
+  var log9;
 
   if (typeof log1 !== 'undefined') {
     document.getElementById("log1").innerHTML = "log1 = " + log1;
@@ -102,9 +109,39 @@ function setupEditor() {
   if (typeof log5 !== 'undefined') {
     document.getElementById("log5").innerHTML = "log5 = " + log5;
   }
+  if (typeof log6 !== 'undefined') {
+    document.getElementById("log6").innerHTML = "log6 = " + log6;
+  }
+  if (typeof log7 !== 'undefined') {
+    document.getElementById("log7").innerHTML = "log7 = " + log7;
+  }
+  if (typeof log8 !== 'undefined') {
+    document.getElementById("log8").innerHTML = "log8 = " + log8;
+  }
+  if (typeof log9 !== 'undefined') {
+    document.getElementById("log9").innerHTML = "log9 = " + log9;
+  }
 
   document.getElementById("idOutput").innerHTML = x;  
   
+  // custom match for testing ojects/array
+  // by turning x[object] to x[string] using x.join()
+
+if (typeof(x) === "object") {
+
+  if (x.join() === Expecting) {
+    document.body.style.backgroundColor = "#FFFF66";
+    document.getElementById("idOutput").style.color = "black";
+    document.getElementById("idDone").style.color = "green"; 
+    document.getElementById("idDone").innerHTML = '&#128504; Done!!!'; 
+  } else {
+    document.body.style.backgroundColor = "#282828"; 
+    document.body.style.color = "darkturquoise";//
+    document.body.style.color = "#797F8C"; // shade of white
+  }
+  
+} else {
+
   if (x === Expecting) {
     document.body.style.backgroundColor = "#FFFF66";
     document.getElementById("idOutput").style.color = "black";
@@ -115,6 +152,8 @@ function setupEditor() {
     document.body.style.color = "darkturquoise";//
     document.body.style.color = "#797F8C"; // shade of white
   }
+}
+
 </script></body></html>
     `,
     1
@@ -319,4 +358,3 @@ update();
 setupEditor2();
 update2();
 setupEditor3();
-
