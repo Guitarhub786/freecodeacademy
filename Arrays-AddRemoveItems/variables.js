@@ -10,10 +10,10 @@ let displayQuestion =
   `
 We have defined a function, mixedNumbers, which we are passing an array as an argument. 
 
-Modify the function by using push() and unshift() to add "one", "two" to the beginning of the array and "five", "six" to the end.
+Modify the function by using push() and unshift() to add 1, 2 to the beginning of the array and 5, 6 to the end.
 
-mixedNumbers(["three", "four"]) should now return
-["one", "two", "three", "four", "five", "six"]
+mixedNumbers([3, 4]) should now return
+[1, 2, 3, 4, 5, 6]
 `;
 
 // === input CODE QUSTION here ===
@@ -24,7 +24,7 @@ let displayCode =
     return arr;
   }
   
-  x = mixedNumbers(["three", "four"]);
+  x = mixedNumbers([3, 4]);
 `;
 
 
@@ -33,13 +33,13 @@ let displayAnswer =
   ` 
   function mixedNumbers(arr) {
 
-    arr.unshift("one", "two");
-    arr.push("five", "six");
+    arr.unshift(1, 2);
+    arr.push(3, 4);
 
     return arr;
   }
   
-  x = mixedNumbers(["three", "four"]);
+  x = mixedNumbers([3, 4]);
 `;
 
 // === Desired Output (answer) here ===
@@ -47,7 +47,7 @@ let displayAnswer =
 
 // let expectedOutput = "let Expecting = ['three','four']"
 // let expectedOutput = "let Expecting = 6";
-let expectedOutput = "let Expecting = 'one,two,three,four,five,six'";
+let expectedOutput = "let Expecting = '1,2,3,4,5,6'";
 
 //=========================================
 //=========================================
