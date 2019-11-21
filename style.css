@@ -1,6 +1,7 @@
 html,
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  font-family: 'Red Hat Text', sans-serif;
   font-size: 14px;
   margin-left: 5;
   padding: 0;
@@ -17,13 +18,15 @@ body {
 }
 
 #heading {
-  font-size: 50px;
+  font-size: 40px;
   /* color: rgba(0,0,0,0.5); */
   color: red;
   color: rgba(207, 13, 13, 0.5);
   text-align: center;
   margin-bottom: 50px;
   
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
   /* font:bold 60px Arial;
   color:#FFFFFF;
   color: rgba(0, 204, 255, 0.3);
@@ -47,7 +50,7 @@ body {
 }
 
 #sub-heading {
-  font-size: 25px;
+  font-size: 18px;
   /* color: rgba(0,0,0,0.5); */
   color: red;
   color: rgba(207, 13, 13, 0.5);
@@ -60,7 +63,7 @@ body {
 }
 
 #container {
-  font-size: 12px;
+  font-size: 10px;
   color: rgba(0,0,0,0.1);
 }
 
