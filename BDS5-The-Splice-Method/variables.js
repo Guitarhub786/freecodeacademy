@@ -35,8 +35,8 @@ let displayAnswer =
   ` 
 function updateText(arr) {
 
-  arr.splice(2,1)
   arr.splice(4)
+  arr.splice(2,1)
   arr.splice(1,1,"will")
 
   return arr; 
@@ -47,13 +47,13 @@ x = updateText(["I", "do", "not", "understand","you","any","more"]);
 // Originale Text
 //["I", "do", "not", "understand","you","any","more"]
 
-// delete element "do"
-//arr = arr.splice(2,1)
-//["I", "do", "understand","you","any","more"]
-
 // delete elements from "any" to end end of array 
-// arr = arr.splice(4)
-//["I", "do", "understand","you"]
+//arr = arr.splice(4)
+//["I", "do", "not", "understand"]
+
+// delete element "do"
+arr = arr.splice(2,1)
+//["I", "do", "understand"]
 
 // delete and replace element "do" to "will"
 // arr = arr.splice(1,1,"will")
@@ -65,7 +65,7 @@ x = updateText(["I", "do", "not", "understand","you","any","more"]);
 
 // let expectedOutput = "let Expecting = ['three','four']"
 // let expectedOutput = "let Expecting = 6";
-let expectedOutput = "let Expecting = 'I,will,understand,you'";
+let expectedOutput = "let Expecting = 'I,will,understand'";
 
 //=========================================
 //=========================================
