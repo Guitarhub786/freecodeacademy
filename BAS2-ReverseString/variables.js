@@ -40,9 +40,9 @@ let displayAnswer =
   
   // solution 2
   function reverseString(str) {
-    var strSplit = str.split('');
-    var strReverse = strSplit.reverse();
-    var strJoin = strReverse.join('');
+    let strSplit = str.split('');
+    let strReverse = strSplit.reverse();
+    let strJoin = strReverse.join('');
     
     return strJoin;
   }
@@ -51,8 +51,8 @@ let displayAnswer =
   
   // solution 3
   function reverseString(str) {
-    var final = "";  
-    for (var i=str.length - 1; i >=0; i--) {
+    let final = "";  
+    for (let i=str.length - 1; i >=0; i--) {
       // .substr(start, length)
       // final += str.substr(i,1);
       // final += str.charAt(i);

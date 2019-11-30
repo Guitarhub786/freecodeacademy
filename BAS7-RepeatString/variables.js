@@ -37,7 +37,7 @@ repeatStringNumTimes("abc", 3);
 
 
 // solution 2
-var accumulatedStr = '';
+let accumulatedStr = '';
 
 while (num > 0) {
   accumulatedStr += str;
@@ -46,9 +46,9 @@ while (num > 0) {
 return accumulatedStr;
 
 // solution 3
-var result = "";
-if(num < 0) return "";
-for (var i = 0; i < num; i++) {
+let result = "";
+if(let < 0) return "";
+for (let i = 0; i < num; i++) {
   result += str;
 }
 return result;
