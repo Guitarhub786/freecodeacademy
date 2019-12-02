@@ -2,6 +2,7 @@
 var storeHTML;
 var storeJS;
 var show = true;
+var showOutput = true;
 var autoRun = false;
 var attempt = 0;
 
@@ -11,6 +12,7 @@ setTimeout(loadQuestion, 100);
 document.getElementById("title").innerHTML = displayTitle;
 document.getElementById("btn-answer").addEventListener("click", loadAnswer);
 document.getElementById("btn-auto").addEventListener("click", buttonAuto);
+document.getElementById("btn-output").addEventListener("click", buttonOutput);
 
 // click btn-auto at start
 document.getElementById("btn-auto").click();
@@ -80,6 +82,7 @@ function setupEditor() {
 <style>
   * {
   font-family: 'Courier New', Courier, monospace;
+  font-size: 24px;
   }
 </style>
 
@@ -144,6 +147,7 @@ if (typeof(x) === "object") {
 
   if (x === Expecting) {
     document.body.style.backgroundColor = "#FFFF66";
+    document.body.style.backgroundColor = "#FFFFCC";
     document.getElementById("idOutput").style.color = "black";
     document.getElementById("idDone").style.color = "green"; 
     document.getElementById("idDone").innerHTML = '&#128504; Done!!!'; 
@@ -166,7 +170,7 @@ if (typeof(x) === "object") {
   // editor.focus();
 
   editor.setOptions({
-    fontSize: "12pt",
+    fontSize: "15px",
     showLineNumbers: false,
     showGutter: false,
     vScrollBarAlwaysVisible: true,
@@ -226,7 +230,7 @@ function setupEditor2() {
   editor2.focus();
 
   editor2.setOptions({
-    fontSize: "12pt",
+    fontSize: "15px",
     showLineNumbers: true,
     showGutter: true,
     vScrollBarAlwaysVisible: true,
@@ -248,7 +252,7 @@ function setupEditor3() {
   editor3.getSession().setTabSize(0);
   editor3.getSession().setUseWrapMode(true);
 
-  document.getElementById('editor3').style.fontSize = '16px';
+  document.getElementById('editor3').style.fontSize = '14px';
   document.getElementById('editor3').style.color = 'cyan';
   editor3.setValue(
     // === SET x = result HERE ===
@@ -265,7 +269,7 @@ displayAnswer not needed in setupEditor3() for now
   // editor3.focus();
 
   editor3.setOptions({
-    fontSize: "12pt",
+    fontSize: "15px",
     showLineNumbers: false,
     showGutter: false,
     vScrollBarAlwaysVisible: true,
@@ -291,7 +295,7 @@ function loadAnswer() {
 
   if (show) {
     document.getElementById("btn-answer").innerText = "Hide Answer";
-    document.getElementById("myTextarea").style.color = "blue";
+    // document.getElementById("myTextarea").style.color = "blue";
     document.getElementById("myTextarea").value = displayAnswer;
     // .value = displayQuestion + displayAnswer;
 
@@ -302,6 +306,9 @@ function loadAnswer() {
     // document.getElementById('editor3').style.fontSize = '15px';
     document.getElementById('editor3').style.color = '#DCDCDC';
     // // editor3.getSession().setUseWrapMode(true);
+
+    document.getElementById("btn-output").innerText = "Expand Output";
+    document.getElementById('iframe2').style.width = '20%';
 
     window.editor3 = ace.edit("editor3");
     editor3.setTheme("ace/theme/monokai");
@@ -321,8 +328,9 @@ function loadAnswer() {
     // show myTextarea and to only hide ACE answer
     document.getElementById("myTextarea").style.display = "";
     document.getElementById('editor3').style.width = '0%';
+    showOutput = false;
 
-    document.getElementById('editor3').style.fontSize = '16px';
+    document.getElementById('editor3').style.fontSize = '14px';
     document.getElementById('editor3').style.color = 'cyan';
     editor3.getSession().setMode();
     editor3.setValue(displayQuestion);
@@ -348,6 +356,24 @@ function buttonAuto() {
     document.getElementById("run_button").style.cursor = "pointer";
     document.getElementById("run_button").style.color = "#DCDCDC";
     autoRun = false;
+  }
+}
+
+function buttonOutput() {
+
+  if (showOutput) {
+    document.getElementById("btn-output").innerText = "Normal Output";
+    document.getElementById("myTextarea").style.display = "none";
+    document.getElementById('editor3').style.width = '0%';
+    document.getElementById('iframe2').style.width = '53%';
+
+    showOutput = false;
+  } else {
+    document.getElementById("btn-output").innerText = "Expand Output";
+    document.getElementById("myTextarea").style.display = "";
+    document.getElementById('iframe2').style.width = '20%';
+
+    showOutput = true;
   }
 }
 

@@ -88,13 +88,13 @@ body {
   height: 89%;
   display: inline-block;
   width: 33%;
-  font-size: 1em;
+  font-size: 16px;
   font-weight: bold;
   background-color: var(--main-bg-color);
 }
 
 #run_button {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* disable tag matching */
@@ -103,19 +103,19 @@ body {
 }
 
 
-#button1, #btn-answer, #run_button, #btn-auto {
+#button1, #btn-answer, #run_button, #btn-auto, #btn-output {
   background-color: var(--main-bg-color);
   color: var(--main-color);
   /* border: none; */
   /* color: white; */
   
-  width: 180px;
+  width: 120px;
   height: 50px;
-  padding: 15px 32px;
+  padding: 7px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   margin: 4px 4px;
   cursor: pointer;
 }
