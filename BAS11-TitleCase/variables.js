@@ -31,6 +31,19 @@ x = titleCase("No need to SHOUT!");
 let displayAnswer =
   ` 
 function titleCase(str) {
+  const words = str.toLowerCase().split(" ");
+
+  for (let i = 0; i < words.length; i++) {
+    words[i] = words[i].substring(0,1).toUpperCase() + 
+    words[i].substring(1);
+  }
+  return words.join(" ");
+}
+
+x = titleCase("No need to SHOUT!");
+
+// solution 2  
+function titleCase(str) {
   let strLower = str.toLowerCase();
   let words = strLower.split(" ");
   let titleCasedWords = [];
@@ -41,7 +54,7 @@ function titleCase(str) {
   return titleCasedWords.join(" ");
 }
 
-titleCase("No need to SHOUT!");
+x = titleCase("No need to SHOUT!");
 `;
 
 // === Desired Output (answer) here ===
