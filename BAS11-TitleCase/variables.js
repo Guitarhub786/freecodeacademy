@@ -44,14 +44,14 @@ x = titleCase("No need to SHOUT!");
 
 // solution 2  
 function titleCase(str) {
-  let strLower = str.toLowerCase();
-  let words = strLower.split(" ");
-  let titleCasedWords = [];
+  let words = str.toLowerCase().split(" ");
+  let capital = [];
 
-  for (var i = 0; i < words.length; i++) {
-    titleCasedWords.push(words[i][0].toUpperCase() + words[i].slice(1));
+  for (let i = 0; i < words.length; i++) {
+    capital.push(words[i][0].toUpperCase() + 
+    words[i].slice(1));
   }
-  return titleCasedWords.join(" ");
+  return capital.join(" ");
 }
 
 x = titleCase("No need to SHOUT!");
