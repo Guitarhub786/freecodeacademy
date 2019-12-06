@@ -49,7 +49,7 @@ let displayAnswer =
   reverseString("hello");
   
   
-  // solution 3
+  // solution 3 (loop backwards)
   function reverseString(str) {
     let final = "";  
     for (let i=str.length - 1; i >=0; i--) {
@@ -61,6 +61,19 @@ let displayAnswer =
     return final;
   }
   reverseString("hello");
+
+  // solution 4 (loop forwards)
+function reverseString(str) {
+  result = "";
+  
+  for (let i = 0; i <= str.length - 1; i++) {
+    result = str[i] + result;
+  }
+  
+  return result;
+}
+
+x = reverseString("hello");
 `;
 
 // === Desired Output (answer) here ===
