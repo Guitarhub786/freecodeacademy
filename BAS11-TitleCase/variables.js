@@ -55,6 +55,21 @@ function titleCase(str) {
 }
 
 x = titleCase("No need to SHOUT!");
+
+// solution 3
+function titleCase(str) {
+  
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map(function (word) {
+      return word[0].toUpperCase() +
+      word.substr(1);
+    })
+    .join(" ");
+}
+
+x = titleCase("No need to SHOUT!");
 `;
 
 // === Desired Output (answer) here ===

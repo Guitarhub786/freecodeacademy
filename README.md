@@ -1,2 +1,0 @@
-# freecodeacademy
-Practice Code Challenges
