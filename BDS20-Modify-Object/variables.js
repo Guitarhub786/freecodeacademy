@@ -37,12 +37,10 @@ function addFriend(friend) {
     }
   };
   
-  
     // change code below this line
-    userObj.data.friends.push(friend);
-    userObj.data.friends.splice(1,1);
-    return userObj.data.friends;
+
     // change code above this line
+    return userObj.data.friends;
   }
   
   x = addFriend("Peter")
@@ -69,12 +67,11 @@ function addFriend(friend) {
     }
   };
   
-  
     // change code below this line
     userObj.data.friends.push(friend);
     userObj.data.friends.splice(1,1);
-    return userObj.data.friends;
     // change code above this line
+    return userObj.data.friends;
   }
   
   x = addFriend("Peter")
