@@ -3,7 +3,7 @@
 //=========================================
 
 // === input QUESTION here ===
-let displayTitle = "Data Structure - Exercise 20: Modify Object";
+let displayTitle = "Data Structure - Exercise 20: Modify Array In Object";
 
 // === input QUESTION here ===
 let displayQuestion =
