@@ -24,7 +24,6 @@ Result...
 let displayCode =
   `
 function frankenSplice(arr1, arr2, n) {
-  let localArr = arr2.slice();
 
   return localArr;
 }
