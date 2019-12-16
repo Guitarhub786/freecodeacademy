@@ -36,7 +36,7 @@ function repeatStringNumTimes(str, num) {
 repeatStringNumTimes("abc", 3);
 
 
-// solution 2
+// Solution 2
 let accumulatedStr = '';
 
 while (num > 0) {
@@ -45,7 +45,7 @@ while (num > 0) {
 }
 return accumulatedStr;
 
-// solution 3
+// Solution 3
 let result = "";
 if(let < 0) return "";
 for (let i = 0; i < num; i++) {
@@ -53,7 +53,7 @@ for (let i = 0; i < num; i++) {
 }
 return result;
 
-// solution 4
+// Solution 4
 if(num < 0) return "";
 if(num === 1) return str; // base case
 return str + repeatStringNumTimes(str, num -1);

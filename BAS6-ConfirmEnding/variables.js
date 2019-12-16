@@ -37,7 +37,7 @@ function confirmEnding(str, target) {
 confirmEnding("Abstraction", "action");
 
 
-// solution 2
+// Solution 2
 if (str.endsWith(target)) {
   return true;
 }
@@ -46,7 +46,7 @@ return false;
 return str.endsWith(target);
 
 
-// solution 3
+// Solution 3
 if (str.substr(-target.length) === target) {
   return true;
 }

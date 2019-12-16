@@ -42,7 +42,7 @@ function titleCase(str) {
 
 x = titleCase("No need to SHOUT!");
 
-// solution 2  
+// Solution 2  
 function titleCase(str) {
   let words = str.toLowerCase().split(" ");
   let capital = [];
@@ -56,7 +56,7 @@ function titleCase(str) {
 
 x = titleCase("No need to SHOUT!");
 
-// solution 3
+// Solution 3
 function titleCase(str) {
   
   return str
@@ -71,7 +71,7 @@ function titleCase(str) {
 
 x = titleCase("No need to SHOUT!");
 
-// solution 4
+// Solution 4
 function titleCase(str) {
   
   let convertToArray = str.toLowerCase().split(" ");

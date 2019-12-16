@@ -38,7 +38,7 @@ let displayAnswer =
   reverseString("hello");
   
   
-  // solution 2
+  // Solution 2
   function reverseString(str) {
     let strSplit = str.split('');
     let strReverse = strSplit.reverse();
@@ -49,7 +49,7 @@ let displayAnswer =
   reverseString("hello");
   
   
-  // solution 3 (loop backwards)
+  // Solution 3 (loop backwards)
   function reverseString(str) {
     let final = "";  
     for (let i=str.length - 1; i >=0; i--) {
@@ -62,7 +62,7 @@ let displayAnswer =
   }
   reverseString("hello");
 
-  // solution 4 (loop forwards)
+  // Solution 4 (loop forwards)
 function reverseString(str) {
   result = "";
   
