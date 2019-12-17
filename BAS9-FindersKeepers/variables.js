@@ -49,9 +49,9 @@ function findElement(arr, func) {
 function findElement(arr, func) {
 
   for (var i = 0; i < arr.length; i++) {
-    num = arr[i];
-    if (func(num)) {
-      return num;
+
+    if (func(arr[i])) {
+      return arr[i];
     }
   }
 
