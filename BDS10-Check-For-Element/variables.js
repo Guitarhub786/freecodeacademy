@@ -51,6 +51,16 @@ function quickCheck(arr, elem) {
   return false;
 }
 
+// Solution 4
+function quickCheck(arr, elem) {
+  
+  for (let i=0; i<arr.length; i++){
+   if (arr[i] == elem) return true; 
+  }
+  
+  return arr;
+}
+
 // Notes:
 // 0 = true   -1 = false
 `;
