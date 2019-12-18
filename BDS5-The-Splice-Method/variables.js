@@ -14,7 +14,7 @@ You can only use the splice() method.
 Can you do it only using splice() x 3 times?
 
 result...
-["I", "will", "understand", "you"]
+["I", "will", "understand"]
 
 `;
 
