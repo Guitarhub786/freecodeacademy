@@ -55,7 +55,9 @@ function quickCheck(arr, elem) {
 function quickCheck(arr, elem) {
   
   for (let i=0; i<arr.length; i++){
-   if (arr[i] == elem) return true; 
+   //if (arr[i] == elem) return true;
+   //return (arr[i] == elem) ? true: false;
+   return (arr[i] == elem); 
   }
   
   return arr;
