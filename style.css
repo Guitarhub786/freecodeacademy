@@ -6,10 +6,10 @@ body {
   margin-left: 5;
   padding: 0;
   height: 100%;
-  width: 100%;
-  overflow: hidden;
+  /* width: 100%; */
+  /* overflow: hidden; */
   /* color: red; */
-  background-color: lavender;
+  background-color: cyan;
   line-height: 20px;
 
   background: linear-gradient(to bottom right, rgb(200, 255, 255) 0%, rgb(100, 147, 228) 100%);
@@ -63,6 +63,11 @@ body {
 }
 
 #container {
+  display: flex;
+  /* justify-content: space-around; */
+  justify-content: space-evenly;
+
+  /* height: 100%; */
   font-size: 10px;
   color: rgba(0,0,0,0.1);
 }
