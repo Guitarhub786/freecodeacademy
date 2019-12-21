@@ -79,6 +79,11 @@ function getIndexToIns(arr, num) {
 }
 
 getIndexToIns([1, 3, 4], 2);
+
+// Solution 5
+function getIndexToIns(arr, num) {
+  return arr.filter(val => num > val).length;
+}
 `;
 
 // === Desired Output (answer) here ===
