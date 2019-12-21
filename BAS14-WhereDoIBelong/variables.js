@@ -47,6 +47,7 @@ function getIndexToIns(arr, num) {
 
 x = getIndexToIns([40, 60], 50);
 
+
 // Solution 2
 function getIndexToIns(arr, num) {
   arr.sort(function(a, b) {
@@ -69,8 +70,15 @@ function getIndexToIns(arr, num) {
   return arr.indexOf(num);
 }
 
+// Solution 4
+function getIndexToIns(arr, num) {
+  return arr
+    .concat(num)
+    .sort((a, b) => a - b)
+    .indexOf(num);
+}
 
-
+getIndexToIns([1, 3, 4], 2);
 `;
 
 // === Desired Output (answer) here ===
