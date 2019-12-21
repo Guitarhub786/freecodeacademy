@@ -59,6 +59,18 @@ function getIndexToIns(arr, num) {
 
   return arr.length;
 }
+
+// Solution 3
+function getIndexToIns(arr, num) {
+  arr.push(num);
+  arr.sort(function(a, b) {
+    return a - b;
+  });
+  return arr.indexOf(num);
+}
+
+
+
 `;
 
 // === Desired Output (answer) here ===
