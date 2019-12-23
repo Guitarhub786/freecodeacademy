@@ -39,7 +39,7 @@ function getIndexToIns(arr, num) {
     return a - b;
   });
 
-  for (var i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (num <= arr[i]) {
       return i;
     }
@@ -56,7 +56,7 @@ function getIndexToIns(arr, num) {
     return a - b;
   });
 
-  for (var a = 0; a < arr.length; a++) {
+  for (let a = 0; a < arr.length; a++) {
     if (arr[a] >= num) return a;
   }
 
