@@ -3,96 +3,53 @@
 //=========================================
 
 // === input QUESTION here ===
-let displayTitle = "Exercise 14: Where Do I Belong";
+let displayTitle = "Exercise 15: Muations";
 
 // === input QUESTION here ===
 let displayQuestion =
   `
-Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted. The returned value should be a number.
+Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
 
-For example, getIndexToIns([1,2,3,4], 1.5) should return 1 because it is greater than 1 (index 0), but less than 2 (index 1).
+For example, ["hello", "Hello"], should return true because all of the letters in the second string are present in the first, ignoring case.
 
-Likewise, getIndexToIns([20,3,5], 19) should return 2 because once the array has been sorted it will look like [3,5,20] and 19 is less than 20 (index 2) and greater than 5 (index 1).
+The arguments ["hello", "hey"] should return false because the string "hello" does not contain a "y".
 
-getIndexToIns([40, 60], 50) Result..
-[1]
+["Alien", "line"] returns...
+true
 `;
 
 // === input CODE QUSTION here ===
 let displayCode =
   `
-function getIndexToIns(arr, num) {
+function mutation(arr) {
 
-  return num;
+  return arr;
 }
 
-x = getIndexToIns([40, 60], 50);
+x = mutation(["Alien", "line"]);
 `;
 
 
 // === input ANSWER here ===
 let displayAnswer =
   ` 
-function getIndexToIns(arr, num) {
-
-  arr.sort(function(a,b) {
-    return a - b;
-  });
-
-  for (let i = 0; i < arr.length; i++) {
-    if (num <= arr[i]) {
-      return i;
-    }
-  } 
-  return arr.length; 
-}
-
-x = getIndexToIns([40, 60], 50);
-
-
-// Solution 2
-function getIndexToIns(arr, num) {
-  arr.sort(function(a, b) {
-    return a - b;
-  });
-
-  for (let a = 0; a < arr.length; a++) {
-    if (arr[a] >= num) return a;
+function mutation(arr) {
+  var test = arr[1].toLowerCase();
+  var target = arr[0].toLowerCase();
+  for (var i = 0; i < test.length; i++) {
+    if (target.indexOf(test[i]) < 0) return false;
   }
-
-  return arr.length;
+  return true;
 }
 
-// Solution 3
-function getIndexToIns(arr, num) {
-  arr.push(num);
-  arr.sort(function(a, b) {
-    return a - b;
-  });
-  return arr.indexOf(num);
-}
-
-// Solution 4
-function getIndexToIns(arr, num) {
-  return arr
-    .concat(num)
-    .sort((a, b) => a - b)
-    .indexOf(num);
-}
-
-getIndexToIns([1, 3, 4], 2);
-
-// Solution 5
-function getIndexToIns(arr, num) {
-  return arr.filter(val => num > val).length;
-}
+x = mutation(["Alien", "line"]);
 `;
 
 // === Desired Output (answer) here ===
 // for strings use  "let Expecting = 'Hello World' ";
 
 // let expectedOutput = "let Expecting = ['three','four']"
-let expectedOutput = "let Expecting = 1";
+let expectedOutput = "let Expecting = true";
 
 //=========================================
 //=========================================
