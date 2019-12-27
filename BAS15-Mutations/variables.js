@@ -53,6 +53,17 @@ function mutation(arr) {
       return arr[0].toLowerCase().indexOf(letter) != -1;
     });
 }
+
+// Solution 3
+function mutation(arr) {
+  return arr[1]
+  .toLowerCase()
+  .split("")
+  .every(x=>arr[0]
+  .toLowerCase()
+  .split("")
+  .includes(x)) ? true : false
+}
 `;
 
 // === Desired Output (answer) here ===
