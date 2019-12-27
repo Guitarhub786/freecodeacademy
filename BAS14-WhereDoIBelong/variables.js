@@ -26,7 +26,7 @@ function getIndexToIns(arr, num) {
   return num;
 }
 
-x = getIndexToIns([40, 60], 50);
+x = getIndexToIns([70, 40, 60, 10], 50);
 `;
 
 
@@ -47,7 +47,7 @@ function getIndexToIns(arr, num) {
   return arr.length; 
 }
 
-x = getIndexToIns([40, 60], 50);
+x = getIndexToIns([70, 40, 60, 10], 50);
 
 
 // Solution 2
@@ -92,7 +92,7 @@ function getIndexToIns(arr, num) {
 // for strings use  "let Expecting = 'Hello World' ";
 
 // let expectedOutput = "let Expecting = ['three','four']"
-let expectedOutput = "let Expecting = 1";
+let expectedOutput = "let Expecting = 2";
 
 //=========================================
 //=========================================
