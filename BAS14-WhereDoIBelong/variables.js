@@ -86,6 +86,17 @@ getIndexToIns([1, 3, 4], 2);
 function getIndexToIns(arr, num) {
   return arr.filter(val => num > val).length;
 }
+
+// Solution 6 - without: sort()
+function getIndexToIns(arr, num) {
+  let result = 0;
+
+  for(let i = 0; i < arr.length; i++) {
+     if(num <= arr[i]) result = i;
+  }
+  
+  return result;
+}
 `;
 
 // === Desired Output (answer) here ===
